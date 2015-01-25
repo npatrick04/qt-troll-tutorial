@@ -250,8 +250,6 @@
 
 (defun otlta ()
   "http://doc.qt.digia.com/4.3/tutorial-t7.html"
-  (let ((app (make-qapplication))
-        (otlta-widget (make-instance 'otlta-widget)))
-    (#_show otlta-widget)
-    (#_exec app)))
+  (with-main-window
+   (window (make-instance 'otlta-widget))))
 
