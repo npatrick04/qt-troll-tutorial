@@ -84,8 +84,21 @@
 
 (defmethod paint-event ((cannon cannon-field) event)
   (let ((painter (#_new QPainter cannon)))
-    (#_drawText painter 200 200 (format nil "Angle = ~D"
-                                        (current-angle cannon)))
+    ;; T8
+    ;; (#_drawText painter 200 200 (format nil "Angle = ~D"
+    ;;                                     (current-angle cannon)))
+
+    ;; T9
+    (#_setPen painter (#_NoPen "Qt"))
+    (#_setBrush painter (#_blue "Qt"))
+    
+    (#_translate painter 0 (#_height (#_rect cannon)))
+    (with-objects ((pie    (#_new QRect -35 -35 70 70))
+                   (barrel (#_new QRect 30 -5 20 10)))
+      (#_drawPie painter pie 0 (* 90 16))
+      (#_rotate painter (- (current-angle cannon)))
+      (#_drawRect painter barrel))
+    
     (#_end painter)))
 
 ;;; Main window
@@ -101,7 +114,7 @@
       (new object parent)
       (new object))
 
-  (let ((quit   (#_new QPushButton "Quit" object))
+  (let ((quit   (#_new QPushButton "&Quit" object))
         (font   (#_new QFont "Times" 18 (#_Bold "QFont")))
         (angle  (make-instance 'lcd-range))
         (cannon-field (make-instance 'cannon-field))
