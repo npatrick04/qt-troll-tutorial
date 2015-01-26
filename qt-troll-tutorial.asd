@@ -8,5 +8,5 @@
   :depends-on (:qt)
   :components ((:file "package")
                (:file "tutorial")
-               (:file "t8")))
+               (:file "cannon")))
 

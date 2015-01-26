@@ -1,4 +1,4 @@
-(in-package :qt-troll-tutorial8)
+(in-package :qt-troll-cannon)
 (named-readtables:in-readtable :qt)
 
 ;;; LCD Range
