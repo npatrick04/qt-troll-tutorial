@@ -7,5 +7,6 @@
   :license "BSD"
   :depends-on (:qt)
   :components ((:file "package")
-               (:file "tutorial")))
+               (:file "tutorial")
+               (:file "t8")))
 
